@@ -1,14 +1,19 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col" v-for="(film,index) in store.listMostPopular" :key="index">
-                <div class="card" style="width: 18rem;">
-                    <img :src="`https://image.tmdb.org/t/p/w500/` + film.poster_path" class="card-img-top" :alt="film.title">
-                    <div class="card-body">
-                        <h5 class="card-title">{{film.title}}</h5>
-                        <p class="card-text">{{film.overview}}</p>
-                        <div class="d-flex"><i v-for="n in parseInt(film.vote_average / 2)" class="fa-solid fa-star"></i></div>
-                        <p>{{film.original_title}}</p>
+            <h1>Popular Movie</h1>
+            <div class="col">
+                <div class="d-flex">
+                    <div v-for="(film,index) in store.arrayPopularMovie" :key="index">
+                        <div class="my-card">
+                            <img :src="`https://image.tmdb.org/t/p/w500/` + film.poster_path" class="card-img-top" :alt="film.title">
+                            <div class="card-body">
+                                <h5 class="card-title">{{film.title}}</h5>
+                                <p>{{film.original_title}}</p>
+                                <p>{{film.original_language}}</p>
+                                <div class="d-flex"><i v-for="n in parseInt(film.vote_average / 2)" class="fa-solid fa-star"></i></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -23,12 +28,14 @@
 
     export default {
 
-
         name: 'CardComponents',
         data() {
             return {
                 store
             }
+            
+        },
+        methods: {
             
         },
         created(){
@@ -41,5 +48,12 @@
 <style lang="scss" scoped>
      .star-color{
         color:  yellow;
+    }
+
+    .my-card{
+        margin-right: 10px;
+        img{
+            width: 100px;   
+        }
     }
 </style>
