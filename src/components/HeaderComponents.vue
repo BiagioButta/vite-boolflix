@@ -1,24 +1,27 @@
 <template>
-    <div class="row row-cols-2 debug">
-
-        <div class="col debug">
-            logo
+    <div class="container">
+        
+        <div class="row row-cols-2">
+        
+            <div class="col">
+                logo
+            </div>
+        
+            <div class="col">
+                <form class="d-flex justify-content-center align-items-center" @submit.prevent="search">
+                    <div class="me-2">
+                        <label class="visually-hidden" for="">Search</label>
+                        <input class="form-control" type="text" id="" placeholder="Search" v-model.trim="text">
+                    </div>
+                
+                    <div>
+                        <button type="submit" class="btn btn-danger">Search</button>
+                    </div>
+                
+                </form>
+            </div>
+        
         </div>
-
-        <div class="col debug">
-            <form class="d-flex justify-content-center align-items-center" @submit.prevent="search">
-                <div class="me-2">
-                    <label class="visually-hidden" for="">Search</label>
-                    <input class="form-control" type="text" id="" placeholder="Search" v-model.trim="text">
-                </div>
-
-                <div>
-                    <button type="submit" class="btn btn-danger">Search</button>
-                </div>
-            
-            </form>
-        </div>
-
     </div>
 </template>
 

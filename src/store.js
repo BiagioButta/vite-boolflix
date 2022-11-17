@@ -4,8 +4,6 @@ import axios from "axios";
 
 export const store = reactive ({
 
-    apiMostPopularURL: 'https://api.themoviedb.org/3/movie/popular?api_key=7c17f03fe6da8c1ceb4f8c968b53de1a&language=it-IT&page=1',
-
     
     baseUrl :'https://api.themoviedb.org/3/',
     endPointPopularMovie: 'movie/popular',
@@ -26,10 +24,40 @@ export const store = reactive ({
         language: 'it-IT'
     },
     
-    getMostPopular(){
-        axios.get(this.apiMostPopularURL).then((res) => {
+    getPopularMovie(){
+
+        const url = this.baseUrl + this.endPointPopularMovie;
+        const params = this.params;
+        axios.get(url,{params}).then((res) => {
 
             this.arrayPopularMovie = [...res.data.results];
+        })
+    },
+    getTopRatedMovie(){
+
+        const url = this.baseUrl + this.endPointTopRatedMovie;
+        const params = this.params;
+        axios.get(url,{params}).then((res) => {
+
+            this.arrayTopRatedMovie = [...res.data.results];
+        })
+    },
+    getPopularTv(){
+
+        const url = this.baseUrl + this.endPointPopularTv;
+        const params = this.params;
+        axios.get(url,{params}).then((res) => {
+
+            this.arrayPopularTv = [...res.data.results];
+        })
+    },
+    getTopRatedTv(){
+
+        const url = this.baseUrl + this.endPointTopRatedTv;
+        const params = this.params;
+        axios.get(url,{params}).then((res) => {
+
+            this.arrayTopRatedTv = [...res.data.results];
         })
     }
 })

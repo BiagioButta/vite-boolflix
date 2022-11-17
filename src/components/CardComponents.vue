@@ -1,10 +1,64 @@
 <template>
     <div class="container">
-        <div class="row">
+        <div class="row overflow-auto">
             <h1>Popular Movie</h1>
             <div class="col">
                 <div class="d-flex">
                     <div v-for="(film,index) in store.arrayPopularMovie" :key="index">
+                        <div class="my-card">
+                            <img :src="`https://image.tmdb.org/t/p/w500/` + film.poster_path" class="card-img-top" :alt="film.title">
+                            <div class="card-body">
+                                <h5 class="card-title">{{film.title}}</h5>
+                                <p>{{film.original_title}}</p>
+                                <p>{{film.original_language}}</p>
+                                <div class="d-flex"><i v-for="n in parseInt(film.vote_average / 2)" class="fa-solid fa-star"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row overflow-auto">
+            <h1>TopRated Movie</h1>
+            <div class="col">
+                <div class="d-flex">
+                    <div v-for="(film,index) in store.arrayTopRatedMovie" :key="index">
+                        <div class="my-card">
+                            <img :src="`https://image.tmdb.org/t/p/w500/` + film.poster_path" class="card-img-top" :alt="film.title">
+                            <div class="card-body">
+                                <h5 class="card-title">{{film.title}}</h5>
+                                <p>{{film.original_title}}</p>
+                                <p>{{film.original_language}}</p>
+                                <div class="d-flex"><i v-for="n in parseInt(film.vote_average / 2)" class="fa-solid fa-star"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row overflow-auto">
+            <h1>Popular Tv</h1>
+            <div class="col">
+                <div class="d-flex">
+                    <div v-for="(film,index) in store.arrayPopularTv" :key="index">
+                        <div class="my-card">
+                            <img :src="`https://image.tmdb.org/t/p/w500/` + film.poster_path" class="card-img-top" :alt="film.title">
+                            <div class="card-body">
+                                <h5 class="card-title">{{film.title}}</h5>
+                                <p>{{film.original_title}}</p>
+                                <p>{{film.original_language}}</p>
+                                <div class="d-flex"><i v-for="n in parseInt(film.vote_average / 2)" class="fa-solid fa-star"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row overflow-auto">
+            <h1>TopRated Tv</h1>
+            <div class="col">
+                <div class="d-flex">
+                    <div v-for="(film,index) in store.arrayTopRatedTv" :key="index">
                         <div class="my-card">
                             <img :src="`https://image.tmdb.org/t/p/w500/` + film.poster_path" class="card-img-top" :alt="film.title">
                             <div class="card-body">
@@ -39,7 +93,10 @@
             
         },
         created(){
-            this.store.getMostPopular()
+            this.store.getPopularMovie();
+            this.store.getPopularTv();
+            this.store.getTopRatedMovie();
+            this.store.getTopRatedTv()
         }
     }
     
