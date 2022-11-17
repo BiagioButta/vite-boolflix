@@ -44,8 +44,8 @@
                         <div class="my-card">
                             <img :src="`https://image.tmdb.org/t/p/w500/` + film.poster_path" class="card-img-top" :alt="film.title">
                             <div class="card-body">
-                                <h5 class="card-title">{{film.title}}</h5>
-                                <p>{{film.original_title}}</p>
+                                <h5 class="card-title">{{film.name}}</h5>
+                                <p>{{film.original_name}}</p>
                                 <p>{{film.original_language}}</p>
                                 <div class="d-flex"><i v-for="n in parseInt(film.vote_average / 2)" class="fa-solid fa-star"></i></div>
                             </div>
@@ -62,8 +62,8 @@
                         <div class="my-card">
                             <img :src="`https://image.tmdb.org/t/p/w500/` + film.poster_path" class="card-img-top" :alt="film.title">
                             <div class="card-body">
-                                <h5 class="card-title">{{film.title}}</h5>
-                                <p>{{film.original_title}}</p>
+                                <h5 class="card-title">{{film.name}}</h5>
+                                <p>{{film.original_name}}</p>
                                 <p>{{film.original_language}}</p>
                                 <div class="d-flex"><i v-for="n in parseInt(film.vote_average / 2)" class="fa-solid fa-star"></i></div>
                             </div>
