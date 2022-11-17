@@ -5,10 +5,11 @@
 <script>
 
   import CardComponents from './components/CardComponents.vue';
+  
 
   export default {
     components: {
-      CardComponents,
+      CardComponents
     },
     data() {
       return {

@@ -7,6 +7,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{film.title}}</h5>
                         <p class="card-text">{{film.overview}}</p>
+                        <div class="d-flex"><i v-for="n in parseInt(film.vote_average / 2)" class="fa-solid fa-star"></i></div>
+                        <p>{{film.original_title}}</p>
                     </div>
                 </div>
             </div>
@@ -16,9 +18,12 @@
 
 <script>
 
-    import { store } from '../store'
+    import { store } from '../store';
+    
 
     export default {
+
+
         name: 'CardComponents',
         data() {
             return {
@@ -34,5 +39,7 @@
 </script>
 
 <style lang="scss" scoped>
-
+     .star-color{
+        color:  yellow;
+    }
 </style>
