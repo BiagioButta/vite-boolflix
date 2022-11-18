@@ -1,10 +1,10 @@
 <template>
     <div class="container">
         
-        <div class="row row-cols-2">
+        <div class="row row-cols-2 align-items-center">
 
             <div class="col">
-                logo
+                <h1>BoolFlix</h1>
             </div>
 
             <div class="col">
@@ -15,7 +15,7 @@
                     </div>
 
                     <div>
-                        <button type="submit" class="btn btn-danger">Search</button>
+                        <button type="submit" class="btn">Search</button>
                     </div>
                 
                 </form>
@@ -40,5 +40,13 @@
 </script>
 
 <style lang="scss" scoped>
+    h1{
+        color: red;
+        font-weight: bold;
+    }
 
+    button{
+        background-color: red;
+        color: white;
+    }
 </style>

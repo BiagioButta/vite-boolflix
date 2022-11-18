@@ -12,22 +12,28 @@ export const store = reactive ({
     endPointTopRatedTv: 'tv/top_rated',
     endPointSearchMovie: 'search/movie',
     endPointSearchTv: 'search/tv',
+    api_key: '?api_key=7c17f03fe6da8c1ceb4f8c968b53de1a',
     
+    activeIndex: 0,
     arrayPopularMovie: [],
     arrayPopularTv: [],
     arrayTopRatedMovie: [],
     arrayTopRatedTv: [],
 
     params: {
-        api_key: '7c17f03fe6da8c1ceb4f8c968b53de1a',
         query: '',
         language: 'it-IT'
+    },
+
+    getImg(){
+        return `background-image: url(./${this.arrayPopularMovie[this.activeIndex].poster_path})`
     },
     
     getPopularMovie(){
 
-        const url = this.baseUrl + this.endPointPopularMovie;
+        const url = this.baseUrl + this.endPointPopularMovie + this.api_key;
         const params = this.params;
+        console.log(url);
         axios.get(url,{params}).then((res) => {
 
             this.arrayPopularMovie = [...res.data.results];
@@ -35,7 +41,7 @@ export const store = reactive ({
     },
     getTopRatedMovie(){
 
-        const url = this.baseUrl + this.endPointTopRatedMovie;
+        const url = this.baseUrl + this.endPointTopRatedMovie + this.api_key;
         const params = this.params;
         axios.get(url,{params}).then((res) => {
 
@@ -44,7 +50,7 @@ export const store = reactive ({
     },
     getPopularTv(){
 
-        const url = this.baseUrl + this.endPointPopularTv;
+        const url = this.baseUrl + this.endPointPopularTv + this.api_key;
         const params = this.params;
         axios.get(url,{params}).then((res) => {
 
@@ -53,7 +59,7 @@ export const store = reactive ({
     },
     getTopRatedTv(){
 
-        const url = this.baseUrl + this.endPointTopRatedTv;
+        const url = this.baseUrl + this.endPointTopRatedTv + this.api_key;
         const params = this.params;
         axios.get(url,{params}).then((res) => {
 
