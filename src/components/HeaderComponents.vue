@@ -3,15 +3,18 @@
         
         <div class="row row-cols-2 align-items-center">
 
-            <div class="col">
-                <h1>BoolFlix</h1>
+            <div class="col d-flex align-items-center">
+                <h1 class="me-5">BoolFlix</h1>
+                
+                <h3 :class="{active : store.activeCategory == 0}" @click="store.callAPI(store.popularEndpoint[0])">Movies</h3>
+                <h3 :class="{active : store.activeCategory == 1}" @click="store.callAPI(store.popularEndpoint[1])">TV Series</h3>
+                
             </div>
 
             <div class="col">
-                <form class="d-flex justify-content-end align-items-center" @submit.prevent="search">
+                <form class="d-flex justify-content-end align-items-center" @submit.prevent="store.callAPI(store.categoryEndpoint[store.activeCategory])">
                     <div class="me-2">
-                        <label class="visually-hidden" for="">Search</label>
-                        <input class="form-control" type="text" id="" placeholder="Search" v-model.trim="text">
+                        <input class="form-control" type="text" placeholder="Search" v-model="store.query">
                     </div>
 
                     <div>
@@ -32,7 +35,7 @@
 
         data() {
             return {
-                text: ''
+                store
             }
         }
     }
@@ -48,5 +51,13 @@
     button{
         background-color: red;
         color: white;
+    }
+
+    h3{
+        cursor: pointer;
+        margin-right: 20px;
+        &.active {
+            border-bottom: 2px solid white;
+        }
     }
 </style>
